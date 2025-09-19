@@ -54,7 +54,7 @@ export function VoiceControl({ isActive, onToggle, onStatusUpdate }: VoiceContro
   }
 
   return (
-    <Card className="bg-gray-800 border-gray-700">
+    <Card className="bg-gray-800 border-gray-700 ">
       <CardHeader>
         <CardTitle className="text-white flex items-center gap-2">
           <Volume2 className="w-5 h-5" />
@@ -62,7 +62,7 @@ export function VoiceControl({ isActive, onToggle, onStatusUpdate }: VoiceContro
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
-        <Button
+        <Button 
           onClick={toggleVoiceControl}
           className={`w-full ${isActive ? "bg-green-500 hover:bg-green-600" : "bg-orange-500 hover:bg-orange-600"}`}
         >

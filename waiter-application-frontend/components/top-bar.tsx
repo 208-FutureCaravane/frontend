@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useTheme } from "next-themes"
@@ -29,8 +30,13 @@ export function TopBar() {
     <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="flex items-center justify-between px-2 py-1.5 sm:px-3 sm:py-2">
         <div className="flex items-center gap-1.5">
-          <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
-          <h1 className="font-heading text-sm sm:text-base text-primary">WaiterApp</h1>
+          <Image
+            src="/LogoWaiter.svg"
+            alt="WaiterApp Logo"
+            width={200}
+            height={200}
+            style={{ filter: 'drop-shadow(2px 2px 4px rgba(255, 255, 255, 0.8))' }}
+          />
         </div>
 
         <div className="flex items-center gap-1">

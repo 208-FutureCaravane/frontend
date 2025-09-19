@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ChefHat, Package, BarChart3 } from "lucide-react"
 import { ThemeToggle } from "./theme-toggle"
@@ -19,9 +20,16 @@ export function Navigation() {
   ]
 
   return (
-    <nav className="bg-card border-b border-border p-4">
+    <nav className="flex flex-row justify-between bg-card border-b border-border p-4  mb-8">
+      <div className="flex items-center gap-2">
+         <Image
+         src="/LogoChef.svg"
+         alt="Kitchen Pro Logo"
+         width={200}
+         height={200}
+         />
+      </div>
       <div className="flex items-center gap-4">
-        <div className="text-xl font-bold text-orange-500">Kitchen Pro</div>
         <div className="flex gap-2 ml-auto items-center">
           {navItems.map((item) => {
             const Icon = item.icon

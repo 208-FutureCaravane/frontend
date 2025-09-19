@@ -26,11 +26,11 @@ export function StockAlert({ alert }: StockAlertProps) {
   const getUrgencyStyles = (level: string) => {
     switch (level) {
       case "critical":
-        return "bg-red-900/30 border-red-500 animate-pulse"
+        return "bg-red-500/30 dark:bg-red-900/30 border-red-500 animate-pulse"
       case "warning":
-        return "bg-yellow-900/30 border-yellow-500"
+        return "bg-yellow-500/30 dark:bg-yellow-900/30 border-yellow-500"
       default:
-        return "bg-orange-900/30 border-orange-500"
+        return "bg-orange-500/30 dark:bg-orange-900/30 border-orange-500"
     }
   }
 

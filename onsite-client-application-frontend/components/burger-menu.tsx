@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu, Home, UtensilsCrossed, ShoppingBag, Clock, X } from "lucide-react"
@@ -38,16 +39,15 @@ export function BurgerMenu({ currentPage }: BurgerMenuProps) {
       <SheetContent side="left" className="w-64 p-0">
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b">
+          <div className="flex items-center justify-between h-24 px-4 border-b">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 restaurant-gradient rounded-full flex items-center justify-center">
-                <UtensilsCrossed className="w-4 h-4 text-white" />
-              </div>
-              <span className="font-semibold">Bella Vista</span>
+              <Image
+                src="/LogoOnSite.svg"
+                alt="Bella Vista Logo"
+                width={200}
+                height={200}
+              />
             </div>
-            <Button variant="ghost" size="sm" onClick={() => setIsOpen(false)}>
-              <X className="w-4 h-4" />
-            </Button>
           </div>
 
           {/* Navigation Items */}
@@ -77,7 +77,7 @@ export function BurgerMenu({ currentPage }: BurgerMenuProps) {
           </nav>
 
           {/* Footer */}
-          <div className="p-4 border-t">
+          <div className="p-4  mb-40 border-t">
             <div className="flex items-center justify-between">
               <span className="text-sm text-muted-foreground">Theme</span>
               <ThemeToggle />

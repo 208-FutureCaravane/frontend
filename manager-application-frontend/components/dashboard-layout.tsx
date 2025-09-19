@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
@@ -92,10 +93,14 @@ export function DashboardLayout({ children, activeTab, onTabChange }: DashboardL
       <div
         className={`fixed inset-y-0 left-0 z-50 w-56 bg-sidebar border-r border-sidebar-border transform transition-all duration-300 ease-in-out ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0 shadow-lg`}
       >
-        <div className="flex h-16 items-center justify-between px-4 border-b border-sidebar-border">
+        <div className="flex h-24 items-center justify-between px-4 border-b border-sidebar-border">
           <div className="flex items-center gap-2">
-            <ChefHat className="h-7 w-7 text-primary animate-pulse" />
-            <span className="text-lg font-bold text-sidebar-foreground">{t.smartRestaurant}</span>
+            <Image
+              src="/LogoManager.svg"
+              alt="SmartRestaurant Logo"
+              width={200}
+              height={200}
+            />
           </div>
         </div>
 
@@ -121,10 +126,10 @@ export function DashboardLayout({ children, activeTab, onTabChange }: DashboardL
       </div>
 
       {/* Main content - Updated left padding from lg:pl-64 to lg:pl-56 */}
-      <div className="lg:pl-56">
+      <div className="lg:pl-56 ">
         {/* Top bar */}
-        <header className="sticky top-0 z-40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
-          <div className="flex h-16 items-center justify-between px-4 lg:px-6">
+        <header className="sticky h-24 top-0 z-40 bg-background/95 backdrop-blur   supports-[backdrop-filter]:bg-background/60 border-b border-border">
+          <div className="flex flex-row h-24 items-center justify-between px-4 lg:px-6">
             <div className="flex items-center gap-4">
               <Button variant="ghost" size="sm" className="lg:hidden" onClick={() => setSidebarOpen(!sidebarOpen)}>
                 <Menu className="h-5 w-5" />

@@ -78,7 +78,7 @@ export function VoiceControlPanel({ onOrderAction, onNavigate }: VoiceControlPan
 
   if (!isSupported) {
     return (
-      <Card className="bg-card border-border mb-4">
+      <Card className="bg-card border-border m-8">
         <CardContent className="p-4">
           <div className="flex items-center gap-2 text-muted-foreground">
             <MicOff className="w-4 h-4" />
@@ -90,7 +90,7 @@ export function VoiceControlPanel({ onOrderAction, onNavigate }: VoiceControlPan
   }
 
   return (
-    <div className="mb-4 space-y-4">
+    <div className="m-8 space-y-4">
       {/* Voice Control Panel */}
       <Card className="bg-card border-border">
         <CardContent className="p-4">

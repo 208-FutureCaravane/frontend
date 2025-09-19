@@ -186,10 +186,10 @@ export function OrderCard({ order, onStatusUpdate }: OrderCardProps) {
         {order.specialRequests && (
           <div className="bg-red-900/30 border border-red-500/50 rounded-lg p-2 sm:p-3 animate-pulse">
             <div className="flex items-center gap-2 mb-1">
-              <AlertTriangle className="w-4 h-4 text-red-400 flex-shrink-0" />
+              <AlertTriangle className="w-4 h-4 text-red-500/30 flex-shrink-20" />
               <span className="text-xs sm:text-sm font-medium text-red-400">Special Request</span>
             </div>
-            <div className="text-xs sm:text-sm text-red-200">{order.specialRequests}</div>
+            <div className="text-xs sm:text-sm text-white">{order.specialRequests}</div>
           </div>
         )}
 

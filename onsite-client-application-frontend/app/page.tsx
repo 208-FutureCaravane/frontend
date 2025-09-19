@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -87,13 +88,16 @@ export default function RestaurantLanding() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-card to-muted">
       {/* Header with Language Selector */}
-      <header className="flex justify-between items-center p-2 sm:p-3 md:p-4 lg:p-6">
+      <header className="flex flex-row justify-between items-center h-30 p-2 px-6">
         <div className="flex items-center gap-2">
           <BurgerMenu currentPage="home" />
-          <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 restaurant-gradient rounded-full flex items-center justify-center">
-            <ChefHat className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 text-white" />
-          </div>
-          <span className="font-semibold text-sm sm:text-base md:text-lg">Bella Vista</span>
+          <Image
+            src="/LogoOnSite.svg"
+            alt="Bella Vista Logo"
+            width={200}
+            height={200}
+            className="max-md:hidden"
+          />
         </div>
 
         <div className="flex items-center gap-1 sm:gap-2 md:gap-3">
@@ -238,7 +242,7 @@ export default function RestaurantLanding() {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 max-w-md mx-auto mb-36 sm:mb-6">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 max-w-md mx-auto mb-36 sm:mb-16">
           <Link href="/menu" className="flex-1">
             <Button
               size="lg"
