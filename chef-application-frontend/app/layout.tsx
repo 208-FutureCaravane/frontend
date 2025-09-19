@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { ThemeProvider } from "@/components/theme-provider"
 import { Suspense } from "react"
 import { NotificationProvider } from "@/components/notification-system"
 import { I18nProvider } from "@/components/i18n-provider"
@@ -26,14 +27,18 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body className={`font-sans ${poppins.variable} antialiased`}>
-        <I18nProvider>
-          <NotificationProvider>
-            <Navigation />
-            <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
-          </NotificationProvider>
-        </I18nProvider>
+        <Suspense fallback={null}>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
+            <I18nProvider>
+              <NotificationProvider>
+                <Navigation />
+                <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+              </NotificationProvider>
+            </I18nProvider>
+          </ThemeProvider>
+        </Suspense>
         <Analytics />
       </body>
     </html>

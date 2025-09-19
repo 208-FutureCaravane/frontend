@@ -5,84 +5,85 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color scheme to beautiful orange theme */
-  --background: oklch(0.99 0.01 85); /* Off-white */
-  --foreground: oklch(0.15 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0 0);
-  --primary: oklch(0.68 0.18 35); /* Beautiful orange */
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.95 0.02 85); /* Light gray */
-  --secondary-foreground: oklch(0.2 0 0);
-  --muted: oklch(0.96 0.01 85);
-  --muted-foreground: oklch(0.55 0 0);
-  --accent: oklch(0.72 0.15 40); /* Warm orange accent */
-  --accent-foreground: oklch(0.15 0 0);
-  --destructive: oklch(0.55 0.22 25); /* Red */
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.92 0.01 85);
-  --input: oklch(0.92 0.01 85);
-  --ring: oklch(0.68 0.18 35);
-  --chart-1: oklch(0.68 0.18 35); /* Orange */
-  --chart-2: oklch(0.75 0.15 50); /* Light orange */
-  --chart-3: oklch(0.6 0.18 140); /* Fresh green */
-  --chart-4: oklch(0.65 0.12 30); /* Deep orange */
-  --chart-5: oklch(0.5 0.1 200); /* Blue accent */
-  --radius: 0.5rem; /* Reduced border radius */
-  --sidebar: oklch(0.98 0.01 85);
-  --sidebar-foreground: oklch(0.15 0 0);
-  --sidebar-primary: oklch(0.68 0.18 35);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.95 0.02 85);
-  --sidebar-accent-foreground: oklch(0.2 0 0);
-  --sidebar-border: oklch(0.92 0.01 85);
-  --sidebar-ring: oklch(0.68 0.18 35);
-  --color-urgent: oklch(0.55 0.22 25); /* Red for urgent */
-  --color-vegetarian: oklch(0.6 0.18 140); /* Fresh green */
+  /* Updated to restaurant theme with amber-to-red gradient palette - unified styling */
+  --background: oklch(0.98 0.01 85); /* Chef's light beige background */
+  --foreground: oklch(0.3 0 0); /* Dark gray for text - from manager */
+  --card: oklch(0.98 0.02 85); /* Light beige for cards - from manager */
+  --card-foreground: oklch(0.3 0 0);
+  --popover: oklch(0.98 0.01 85);
+  --popover-foreground: oklch(0.3 0 0);
+  --primary: oklch(0.65 0.15 45); /* Amber primary - from manager */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.7 0.18 35); /* Orange accent - from manager */
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.96 0.01 85); /* Very light beige - from manager */
+  --muted-foreground: oklch(0.5 0 0);
+  --accent: oklch(0.72 0.2 25); /* Red-orange accent - from manager */
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.55 0.25 15); /* Red for alerts - from manager */
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.9 0.01 85);
+  --input: oklch(0.98 0.02 85);
+  --ring: oklch(0.65 0.15 45);
+  /* Updated chart colors to match food theme - from manager */
+  --chart-1: oklch(0.75 0.2 45); /* Golden yellow */
+  --chart-2: oklch(0.7 0.18 35); /* Orange */
+  --chart-3: oklch(0.65 0.2 25); /* Red-orange */
+  --chart-4: oklch(0.6 0.22 15); /* Red */
+  --chart-5: oklch(0.55 0.15 120); /* Fresh green */
+  --radius: 0.75rem; /* Larger radius for modern look - from manager */
+  --sidebar: oklch(0.98 0.02 85);
+  --sidebar-foreground: oklch(0.3 0 0);
+  --sidebar-primary: oklch(0.65 0.15 45);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.96 0.01 85);
+  --sidebar-accent-foreground: oklch(0.3 0 0);
+  --sidebar-border: oklch(0.9 0.01 85);
+  --sidebar-ring: oklch(0.65 0.15 45);
+  --color-urgent: oklch(0.55 0.25 15); /* Unified red for urgent */
+  --color-vegetarian: oklch(0.55 0.15 120); /* Unified fresh green */
 }
 
+
 .dark {
-  /* Updated dark mode colors to maintain orange theme */
-  --background: oklch(0.12 0.01 85); /* Dark charcoal */
-  --foreground: oklch(0.95 0.01 85);
-  --card: oklch(0.15 0.01 85);
-  --card-foreground: oklch(0.95 0.01 85);
-  --popover: oklch(0.15 0.01 85);
-  --popover-foreground: oklch(0.95 0.01 85);
-  --primary: oklch(0.75 0.18 35); /* Brighter orange for dark mode */
-  --primary-foreground: oklch(0.12 0.01 85);
-  --secondary: oklch(0.25 0.01 85);
-  --secondary-foreground: oklch(0.95 0.01 85);
-  --muted: oklch(0.25 0.01 85);
-  --muted-foreground: oklch(0.65 0.01 85);
-  --accent: oklch(0.78 0.15 40); /* Brighter orange accent */
-  --accent-foreground: oklch(0.12 0.01 85);
-  --destructive: oklch(0.65 0.22 25);
-  --destructive-foreground: oklch(0.95 0.01 85);
-  --border: oklch(0.25 0.01 85);
-  --input: oklch(0.25 0.01 85);
-  --ring: oklch(0.75 0.18 35);
-  --chart-1: oklch(0.75 0.18 35);
-  --chart-2: oklch(0.8 0.15 50);
-  --chart-3: oklch(0.7 0.18 140);
-  --chart-4: oklch(0.7 0.12 30);
-  --chart-5: oklch(0.6 0.1 200);
-  --sidebar: oklch(0.18 0.01 85);
-  --sidebar-foreground: oklch(0.95 0.01 85);
-  --sidebar-primary: oklch(0.75 0.18 35);
-  --sidebar-primary-foreground: oklch(0.12 0.01 85);
-  --sidebar-accent: oklch(0.25 0.01 85);
-  --sidebar-accent-foreground: oklch(0.95 0.01 85);
-  --sidebar-border: oklch(0.25 0.01 85);
-  --sidebar-ring: oklch(0.75 0.18 35);
-  --color-urgent: oklch(0.65 0.22 25);
-  --color-vegetarian: oklch(0.7 0.18 140);
+  /* Updated dark theme to maintain restaurant aesthetic - unified with manager */
+  --background: oklch(0.15 0 0);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.18 0.01 45);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.15 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(0.75 0.2 45);
+  --primary-foreground: oklch(0.15 0 0);
+  --secondary: oklch(0.25 0.02 45);
+  --secondary-foreground: oklch(0.95 0 0);
+  --muted: oklch(0.25 0.01 45);
+  --muted-foreground: oklch(0.7 0 0);
+  --accent: oklch(0.25 0.02 45);
+  --accent-foreground: oklch(0.95 0 0);
+  --destructive: oklch(0.5 0.2 15);
+  --destructive-foreground: oklch(0.95 0 0);
+  --border: oklch(0.25 0.01 45);
+  --input: oklch(0.25 0.01 45);
+  --ring: oklch(0.75 0.2 45);
+  --chart-1: oklch(0.8 0.25 45);
+  --chart-2: oklch(0.75 0.22 35);
+  --chart-3: oklch(0.7 0.25 25);
+  --chart-4: oklch(0.65 0.27 15);
+  --chart-5: oklch(0.6 0.2 120);
+  --sidebar: oklch(0.18 0.01 45);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.8 0.25 45);
+  --sidebar-primary-foreground: oklch(0.15 0 0);
+  --sidebar-accent: oklch(0.25 0.02 45);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.25 0.01 45);
+  --sidebar-ring: oklch(0.75 0.2 45);
 }
 
 @theme inline {
-  --font-sans: var(--font-poppins);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
   --font-heading: "Protest Strike", cursive;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
