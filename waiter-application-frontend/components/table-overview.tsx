@@ -12,7 +12,7 @@ import Link from "next/link"
 type TableStatus = "free" | "occupied" | "waiting" | "served"
 type SortOption = "newest" | "longest" | "urgency"
 
-interface Table {
+export interface Table {
   id: number
   number: string
   status: TableStatus
@@ -24,7 +24,7 @@ interface Table {
 }
 
 // Mock data
-const mockTables: Table[] = [
+export const mockTables: Table[] = [
   {
     id: 1,
     number: "T01",
@@ -234,7 +234,9 @@ export function TableOverview() {
                         <h3 className="text-xs sm:text-sm font-heading">{table.number}</h3>
                         {table.needsAttention && <AlertTriangle className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-amber-500" />}
                         {Math.random() > 0.7 && (
-                          <Leaf className="h-2.5 w-2.5 text-green-600" title="Vegetarian options" />
+                          <span title="Vegetarian options">
+                            <Leaf className="h-2.5 w-2.5 text-green-600" />
+                          </span>
                         )}
                       </div>
                       <Badge className={cn("text-xs", config.color)}>{config.label}</Badge>
@@ -281,7 +283,9 @@ export function TableOverview() {
                         <h3 className="text-xs sm:text-sm font-heading">{table.number}</h3>
                         {table.needsAttention && <AlertTriangle className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-amber-500" />}
                         {Math.random() > 0.7 && (
-                          <Leaf className="h-2.5 w-2.5 text-green-600" title="Vegetarian options" />
+                          <span title="Vegetarian options">
+                            <Leaf className="h-2.5 w-2.5 text-green-600" />
+                          </span>
                         )}
                       </div>
                       <Badge className={cn("text-xs", config.color)}>{config.label}</Badge>
@@ -339,33 +343,6 @@ export function TableOverview() {
             </Card>
           )
         })}
-      </div>
-
-      <div className="grid grid-cols-4 gap-1.5 sm:gap-3 pt-2 sm:pt-4 border-t border-border">
-        <div className="text-center">
-          <div className="text-sm sm:text-base font-bold text-green-600">
-            {mockTables.filter((t) => t.status === "free").length}
-          </div>
-          <div className="text-xs text-muted-foreground">Free</div>
-        </div>
-        <div className="text-center">
-          <div className="text-sm sm:text-base font-bold text-blue-600">
-            {mockTables.filter((t) => t.status === "occupied").length}
-          </div>
-          <div className="text-xs text-muted-foreground">Occupied</div>
-        </div>
-        <div className="text-center">
-          <div className="text-sm sm:text-base font-bold text-amber-600">
-            {mockTables.filter((t) => t.status === "waiting").length}
-          </div>
-          <div className="text-xs text-muted-foreground">Waiting</div>
-        </div>
-        <div className="text-center">
-          <div className="text-sm sm:text-base font-bold text-emerald-600">
-            {mockTables.filter((t) => t.status === "served").length}
-          </div>
-          <div className="text-xs text-muted-foreground">Served</div>
-        </div>
       </div>
     </div>
   )
