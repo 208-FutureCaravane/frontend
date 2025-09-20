@@ -1,0 +1,12 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="foodGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8E3C;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#foodGradient1)"/>
+  <circle cx="200" cy="150" r="80" fill="#ffffff" opacity="0.2"/>
+  <path d="M160 130 L200 110 L240 130 L220 170 L180 170 Z" fill="#ffffff" opacity="0.3"/>
+  <text x="200" y="200" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Food</text>
+</svg>

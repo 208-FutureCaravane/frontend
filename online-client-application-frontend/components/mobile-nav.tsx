@@ -21,8 +21,8 @@ export function MobileNav() {
 
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-orange-200/50 dark:border-gray-700/50 md:hidden">
-        <div className="flex items-center justify-between px-4 py-2">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white/98 dark:bg-gray-900/98 backdrop-blur-md border-b border-orange-200/50 dark:border-gray-700/50 md:hidden">
+        <div className="flex items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
               <span className="text-white text-xs font-bold">SR</span>
@@ -37,7 +37,7 @@ export function MobileNav() {
         </div>
       </div>
 
-      <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-t border-orange-200/50 dark:border-gray-700/50 transition-colors duration-300 md:hidden">
+      <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/98 dark:bg-gray-900/98 backdrop-blur-md border-t border-orange-200/50 dark:border-gray-700/50 transition-colors duration-300 md:hidden shadow-lg">
         <div className="flex items-center justify-around py-2 px-2">
           {navItems.map(({ href, icon: Icon, label, badge }) => {
             const isActive = pathname === href

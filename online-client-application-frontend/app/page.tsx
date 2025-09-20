@@ -64,6 +64,48 @@ const featuredRestaurants = [
     isOpen: true,
     deliveryFee: 100,
   },
+  {
+    id: 4,
+    name: "Tokyo Sushi",
+    cuisine: "Japanese",
+    rating: 4.9,
+    deliveryTime: "40-50 min",
+    distance: "3.5 km",
+    image: "/images/restaurants/tokyo-sushi.jpg",
+    badge: "Premium",
+    specialties: ["Sushi", "Ramen", "Tempura"],
+    priceRange: "$$$",
+    isOpen: true,
+    deliveryFee: 250,
+  },
+  {
+    id: 5,
+    name: "Le Petit Café",
+    cuisine: "French",
+    rating: 4.5,
+    deliveryTime: "45-55 min",
+    distance: "2.8 km",
+    image: "/images/restaurants/le-petit-cafe.jpg",
+    badge: "Chef's Choice",
+    specialties: ["Croissants", "Quiche", "Coffee"],
+    priceRange: "$$",
+    isOpen: true,
+    deliveryFee: 200,
+  },
+  {
+    id: 6,
+    name: "Taco Fiesta",
+    cuisine: "Mexican",
+    rating: 4.4,
+    deliveryTime: "25-35 min",
+    distance: "1.8 km",
+    image: "/images/restaurants/taco-fiesta.jpg",
+    badge: "Spicy",
+    specialties: ["Tacos", "Burritos", "Nachos"],
+    priceRange: "$",
+    isOpen: true,
+    deliveryFee: 150,
+  },
 ]
 
 const featuredDishes = [
@@ -109,6 +151,48 @@ const featuredDishes = [
     isPopular: false,
     discount: 14,
   },
+  {
+    id: 4,
+    name: "Dragon Roll",
+    restaurant: "Sushi Zen",
+    price: 2500,
+    originalPrice: 2800,
+    image: "/images/dishes/dragon-roll.jpg",
+    rating: 4.9,
+    prepTime: "20-25 min",
+    calories: 320,
+    isVegetarian: false,
+    isPopular: true,
+    discount: 11,
+  },
+  {
+    id: 5,
+    name: "Beef Tacos (3pcs)",
+    restaurant: "Taco Fiesta",
+    price: 900,
+    originalPrice: 1100,
+    image: "/images/dishes/beef-tacos.jpg",
+    rating: 4.6,
+    prepTime: "8-12 min",
+    calories: 380,
+    isVegetarian: false,
+    isPopular: true,
+    discount: 18,
+  },
+  {
+    id: 6,
+    name: "Caesar Salad",
+    restaurant: "Green Bowl",
+    price: 800,
+    originalPrice: 950,
+    image: "/images/dishes/caesar-salad.jpg",
+    rating: 4.5,
+    prepTime: "5-10 min",
+    calories: 180,
+    isVegetarian: true,
+    isPopular: false,
+    discount: 16,
+  },
 ]
 
 export default function HomePage() {
@@ -119,52 +203,36 @@ export default function HomePage() {
     { name: "Coffee", icon: Coffee, color: "bg-amber-100 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400" },
     { name: "Healthy", icon: Salad, color: "bg-green-100 text-green-600 dark:bg-green-900/20 dark:text-green-400" },
     { name: "All", icon: Utensils, color: "bg-orange-100 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400" },
+    { name: "Asian", icon: ChefHat, color: "bg-purple-100 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400" },
+    { name: "Mexican", icon: Flame, color: "bg-yellow-100 text-yellow-600 dark:bg-yellow-900/20 dark:text-yellow-400" },
   ]
 
   return (
     <div className="min-h-screen bg-background">
-      <main className="pt-16 pb-24 md:pt-4 md:pb-8">
-        {/* Hero Section with AI Features */}
-        <section className="relative bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-3xl mx-2 sm:mx-4 mt-2 sm:mt-4 overflow-hidden">
-          <div className="absolute inset-0 bg-black/10"></div>
-          <div className="relative px-4 sm:px-6 py-8 sm:py-12">
-            <div className="text-center">
-              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-3 sm:px-4 py-2 mb-4">
-                <Sparkles className="h-4 w-4 animate-pulse" />
-                <span className="text-xs sm:text-sm font-medium">AI-Powered Food Discovery</span>
-              </div>
-              <h1 className="text-2xl sm:text-3xl font-heading font-bold mb-3 text-balance leading-tight">
-                {t("restaurant.tagline")}
-              </h1>
-              <p className="text-base sm:text-lg mb-6 text-white/90 text-pretty px-2">
-                Order from your favorite restaurants with smart recommendations and real-time tracking
-              </p>
-
-              <div className="flex flex-col gap-3 justify-center max-w-sm mx-auto">
-                <Link href="/search" className="w-full">
-                  <Button
-                    size="lg"
-                    className="w-full bg-white text-orange-600 hover:bg-white/90 font-semibold shadow-lg"
-                  >
-                    <Mic className="h-4 w-4 mr-2" />
-                    Try Voice Search
-                  </Button>
-                </Link>
-                <Link href="/search" className="w-full">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="w-full border-white/30 text-white hover:bg-white/10 backdrop-blur-sm bg-transparent"
-                  >
-                    {t("restaurant.findRestaurants")}
-                  </Button>
-                </Link>
-              </div>
+      <div className="px-4 py-4">
+        {/* Search Section */}
+        <section className="mb-6">
+          <div className="relative max-w-md mx-auto">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <Utensils className="h-5 w-5 text-gray-400" />
+            </div>
+            <input
+              type="text"
+              placeholder="Describe what you wanna eat"
+              className="block w-full pl-10 pr-12 py-3 border border-gray-200 rounded-xl text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent shadow-sm bg-white dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:placeholder-gray-400"
+            />
+            <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+              <Button
+                size="sm"
+                className="h-8 w-8 p-0 bg-orange-500 hover:bg-orange-600 rounded-lg"
+              >
+                <Mic className="h-4 w-4" />
+              </Button>
             </div>
           </div>
         </section>
 
-        <section className="px-2 sm:px-4 py-4 sm:py-6">
+        <section className="py-6">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 sm:w-8 sm:h-8 bg-orange-500 rounded-xl flex items-center justify-center">
@@ -184,7 +252,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-4">
             {featuredRestaurants.slice(0, 3).map((restaurant) => (
               <Link key={restaurant.id} href={`/restaurant/${restaurant.id}`}>
-                <Card className="overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-[1.02] border-0 shadow-lg active:scale-[0.98] bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 border-green-200 dark:border-green-800">
+                <Card className="restaurant-card overflow-hidden cursor-pointer border-0 shadow-lg bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 border-green-200 dark:border-green-800">
                   <div className="relative">
                     <Image
                       src={restaurant.image || "/placeholder.svg"}
@@ -193,8 +261,8 @@ export default function HomePage() {
                       height={140}
                       className="w-full h-28 sm:h-32 object-cover"
                     />
-                    <Badge className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1">AI Pick</Badge>
-                    <div className="absolute top-2 right-2 flex items-center gap-1 bg-white/90 dark:bg-gray-900/90 rounded-full px-2 py-1">
+                    <Badge className="chef-badge absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1">AI Pick</Badge>
+                    <div className="rating-badge absolute top-2 right-2 flex items-center gap-1 bg-white/90 dark:bg-gray-900/90 rounded-full px-2 py-1">
                       <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                       <span className="text-xs font-medium">{restaurant.rating}</span>
                     </div>
@@ -206,33 +274,33 @@ export default function HomePage() {
                       </Badge>
                     </div>
                   </div>
-                  <CardContent className="p-3">
-                    <div className="flex items-start justify-between mb-2">
+                  <CardContent className="p-4 sm:p-5">
+                    <div className="flex items-start justify-between mb-3">
                       <div className="flex-1">
-                        <h3 className="font-semibold text-sm mb-1">{restaurant.name}</h3>
-                        <p className="text-xs text-muted-foreground mb-1">
+                        <h3 className="font-semibold text-sm mb-1.5">{restaurant.name}</h3>
+                        <p className="text-xs text-muted-foreground mb-2">
                           {restaurant.cuisine} • {restaurant.priceRange}
                         </p>
-                        <div className="flex flex-wrap gap-1 mb-2">
+                        <div className="flex flex-wrap gap-1 mb-3">
                           {restaurant.specialties.slice(0, 2).map((specialty, index) => (
-                            <Badge key={index} variant="outline" className="text-xs px-1 py-0">
+                            <Badge key={index} variant="outline" className="text-xs px-1.5 py-0.5">
                               {specialty}
                             </Badge>
                           ))}
                         </div>
                       </div>
                     </div>
-                    <div className="flex items-center justify-between text-xs text-muted-foreground">
-                      <div className="flex items-center gap-1">
+                    <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
+                      <div className="flex items-center gap-1.5">
                         <Clock className="h-3 w-3" />
                         <span>{restaurant.deliveryTime}</span>
                       </div>
-                      <div className="flex items-center gap-1">
+                      <div className="flex items-center gap-1.5">
                         <MapPin className="h-3 w-3" />
                         <span>{restaurant.distance}</span>
                       </div>
                     </div>
-                    <div className="mt-2 pt-2 border-t border-gray-100 dark:border-gray-700">
+                    <div className="pt-3 border-t border-gray-100 dark:border-gray-700">
                       <div className="flex items-center justify-between text-xs">
                         <span className="text-muted-foreground">Delivery</span>
                         <span className="font-medium text-green-600">
@@ -272,7 +340,7 @@ export default function HomePage() {
             {featuredDishes.map((dish) => (
               <Card
                 key={dish.id}
-                className="overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-[1.02] border-0 shadow-lg active:scale-[0.98]"
+                className="restaurant-card overflow-hidden cursor-pointer border-0 shadow-lg"
               >
                 <div className="relative">
                   <Image
@@ -282,7 +350,7 @@ export default function HomePage() {
                     height={140}
                     className="w-full h-28 sm:h-32 object-cover"
                   />
-                  <div className="absolute top-2 right-2 flex items-center gap-1 bg-white/90 dark:bg-gray-900/90 rounded-full px-2 py-1">
+                  <div className="rating-badge absolute top-2 right-2 flex items-center gap-1 bg-white/90 dark:bg-gray-900/90 rounded-full px-2 py-1">
                     <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                     <span className="text-xs font-medium">{dish.rating}</span>
                   </div>
@@ -305,11 +373,11 @@ export default function HomePage() {
                     </div>
                   )}
                 </div>
-                <CardContent className="p-3">
-                  <h3 className="font-semibold text-sm mb-1">{dish.name}</h3>
-                  <p className="text-xs text-muted-foreground mb-2">{dish.restaurant}</p>
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <CardContent className="p-4 sm:p-5">
+                  <h3 className="font-semibold text-sm mb-1.5">{dish.name}</h3>
+                  <p className="text-xs text-muted-foreground mb-3">{dish.restaurant}</p>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                       <Clock className="h-3 w-3" />
                       <span>{dish.prepTime}</span>
                     </div>
@@ -324,7 +392,7 @@ export default function HomePage() {
                     </div>
                     <Button
                       size="sm"
-                      className="h-7 px-3 text-xs bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600"
+                      className="h-8 px-3 text-xs bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600"
                     >
                       <Heart className="h-3 w-3 mr-1" />
                       Add
@@ -339,17 +407,17 @@ export default function HomePage() {
         {/* Cuisine Categories with Enhanced Design */}
         <section className="px-2 sm:px-4 py-4 sm:py-6">
           <h2 className="text-lg sm:text-xl font-heading font-bold mb-4">Browse by Cuisine</h2>
-          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+          <div className="grid grid-cols-3 gap-2 sm:gap-3">
             {cuisineTypes.map(({ name, icon: Icon, color }) => (
               <Card
                 key={name}
                 className="cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-105 border-0 shadow-lg active:scale-95"
               >
-                <CardContent className="flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-6">
-                  <div className={`p-3 sm:p-4 rounded-2xl ${color} shadow-lg`}>
+                <CardContent className="flex flex-col items-center gap-3 p-4 sm:p-5">
+                  <div className={`p-3 rounded-xl ${color} shadow-md`}>
                     <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
-                  <span className="font-medium text-center text-sm sm:text-base">{name}</span>
+                  <span className="font-medium text-center text-xs sm:text-sm">{name}</span>
                 </CardContent>
               </Card>
             ))}
@@ -370,7 +438,7 @@ export default function HomePage() {
           <div className="space-y-3 sm:space-y-4">
             {featuredRestaurants.map((restaurant) => (
               <Link key={restaurant.id} href={`/restaurant/${restaurant.id}`}>
-                <Card className="overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-[1.02] border-0 shadow-lg active:scale-[0.98]">
+                <Card className="restaurant-card overflow-hidden cursor-pointer border-0 shadow-lg">
                   <div className="flex">
                     <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0">
                       <Image
@@ -379,32 +447,32 @@ export default function HomePage() {
                         fill
                         className="object-cover rounded-l-lg"
                       />
-                      <Badge className="absolute top-1 left-1 sm:top-2 sm:left-2 bg-primary text-primary-foreground text-xs px-1.5 sm:px-2 py-0.5">
+                      <Badge className="chef-badge absolute top-1 left-1 sm:top-2 sm:left-2 text-xs px-1.5 sm:px-2 py-0.5">
                         {restaurant.badge}
                       </Badge>
                     </div>
 
-                    <CardContent className="flex-1 p-3 sm:p-4">
-                      <div className="flex items-start justify-between mb-2">
+                    <CardContent className="flex-1 p-4 sm:p-5">
+                      <div className="flex items-start justify-between mb-3">
                         <h3 className="font-heading font-semibold text-base sm:text-lg leading-tight">
                           {restaurant.name}
                         </h3>
-                        <div className="flex items-center gap-1 ml-2">
+                        <div className="rating-badge flex items-center gap-1.5 ml-2">
                           <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-yellow-400 text-yellow-400" />
                           <span className="text-xs sm:text-sm font-medium">{restaurant.rating}</span>
                         </div>
                       </div>
 
-                      <p className="text-muted-foreground text-xs sm:text-sm mb-2 sm:mb-3">
+                      <p className="text-muted-foreground text-xs sm:text-sm mb-3">
                         {restaurant.cuisine} • {restaurant.priceRange}
                       </p>
 
-                      <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
-                        <div className="flex items-center gap-1">
+                      <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
+                        <div className="flex items-center gap-1.5">
                           <Clock className="h-3 w-3" />
                           <span>{restaurant.deliveryTime}</span>
                         </div>
-                        <div className="flex items-center gap-1">
+                        <div className="flex items-center gap-1.5">
                           <MapPin className="h-3 w-3" />
                           <span>{restaurant.distance}</span>
                         </div>
@@ -413,7 +481,7 @@ export default function HomePage() {
                       <div className="flex items-center justify-between">
                         <div className="flex flex-wrap gap-1">
                           {restaurant.specialties.slice(0, 2).map((specialty, index) => (
-                            <Badge key={index} variant="outline" className="text-xs px-1 py-0">
+                            <Badge key={index} variant="outline" className="text-xs px-1.5 py-0.5">
                               {specialty}
                             </Badge>
                           ))}
@@ -453,7 +521,7 @@ export default function HomePage() {
             </CardContent>
           </Card>
         </section>
-      </main>
+      </div>
     </div>
   )
 }

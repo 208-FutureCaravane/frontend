@@ -142,8 +142,8 @@ export default function NotificationsPage() {
     <Card
       className={`transition-all duration-200 border-orange-100 dark:border-orange-900/30 ${!notification.read ? "border-l-4 border-l-orange-500 bg-orange-50/30 dark:bg-orange-900/10" : ""}`}
     >
-      <CardContent className="p-3 sm:p-4">
-        <div className="flex gap-2 sm:gap-3">
+      <CardContent className="p-4 sm:p-5">
+        <div className="flex gap-3 sm:gap-4">
           {notification.image ? (
             <Image
               src={notification.image || "/placeholder.svg"}

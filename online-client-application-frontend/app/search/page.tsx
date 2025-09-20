@@ -36,7 +36,7 @@ const restaurants = [
     deliveryTime: "25-35 min",
     distance: "1.2 km",
     priceRange: 2,
-    image: "/italian-restaurant-food.png",
+    image: "/images/restaurants/bella-italia.jpg",
     tags: ["Popular", "Vegetarian Friendly"],
     isOpen: true,
   },
@@ -48,7 +48,7 @@ const restaurants = [
     deliveryTime: "30-40 min",
     distance: "2.1 km",
     priceRange: 2,
-    image: "/indian-restaurant-curry.jpg",
+    image: "/images/restaurants/spice-garden.jpg",
     tags: ["Spicy", "Vegan Options"],
     isOpen: true,
   },
@@ -60,9 +60,9 @@ const restaurants = [
     deliveryTime: "20-30 min",
     distance: "0.8 km",
     priceRange: 1,
-    image: "/burger-restaurant-american-food.jpg",
+    image: "/images/restaurants/burger-palace.jpg",
     tags: ["Fast Delivery", "Family Friendly"],
-    isOpen: false,
+    isOpen: true,
   },
   {
     id: 4,
@@ -72,9 +72,57 @@ const restaurants = [
     deliveryTime: "35-45 min",
     distance: "3.2 km",
     priceRange: 3,
-    image: "/placeholder-693vf.png",
+    image: "/images/restaurants/tokyo-sushi.jpg",
     tags: ["Premium", "Fresh Fish"],
     isOpen: true,
+  },
+  {
+    id: 5,
+    name: "Le Petit Café",
+    cuisine: "French",
+    rating: 4.5,
+    deliveryTime: "40-50 min",
+    distance: "2.8 km",
+    priceRange: 2,
+    image: "/images/restaurants/le-petit-cafe.jpg",
+    tags: ["Authentic", "Coffee Specialist"],
+    isOpen: true,
+  },
+  {
+    id: 6,
+    name: "Taco Fiesta",
+    cuisine: "Mexican",
+    rating: 4.4,
+    deliveryTime: "25-35 min",
+    distance: "1.8 km",
+    priceRange: 1,
+    image: "/images/restaurants/taco-fiesta.jpg",
+    tags: ["Spicy", "Late Night"],
+    isOpen: true,
+  },
+  {
+    id: 7,
+    name: "Green Bowl",
+    cuisine: "Healthy",
+    rating: 4.3,
+    deliveryTime: "15-25 min",
+    distance: "1.5 km",
+    priceRange: 2,
+    image: "/images/restaurants/bella-italia.jpg",
+    tags: ["Vegan", "Organic"],
+    isOpen: true,
+  },
+  {
+    id: 8,
+    name: "Pizza Corner",
+    cuisine: "Italian",
+    rating: 4.2,
+    deliveryTime: "20-30 min",
+    distance: "2.2 km",
+    priceRange: 1,
+    image: "/images/restaurants/burger-palace.jpg",
+    tags: ["Budget Friendly", "Quick Bites"],
+    isOpen: false,
   },
 ]
 
@@ -408,8 +456,8 @@ export default function SearchPage() {
                         )}
                       </div>
 
-                      <CardContent className="flex-1 p-3 sm:p-4">
-                        <div className="flex items-start justify-between mb-1 sm:mb-2">
+                      <CardContent className="flex-1 p-4 sm:p-5">
+                        <div className="flex items-start justify-between mb-2 sm:mb-3">
                           <h3 className="font-heading font-semibold text-sm sm:text-lg leading-tight">
                             {restaurant.name}
                           </h3>
@@ -464,12 +512,12 @@ export default function SearchPage() {
                       <span className="text-xs font-medium">{dish.rating}</span>
                     </div>
                   </div>
-                  <CardContent className="p-3 sm:p-4">
-                    <h3 className="font-semibold text-sm sm:text-base mb-1">{dish.name}</h3>
+                  <CardContent className="p-4 sm:p-5">
+                    <h3 className="font-semibold text-sm sm:text-base mb-1.5">{dish.name}</h3>
                     <p className="text-xs sm:text-sm text-muted-foreground mb-2">{dish.restaurant}</p>
                     <p className="text-xs text-muted-foreground mb-3 line-clamp-2">{dish.description}</p>
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                         <Clock className="h-3 w-3" />
                         <span>{dish.prepTime}</span>
                       </div>

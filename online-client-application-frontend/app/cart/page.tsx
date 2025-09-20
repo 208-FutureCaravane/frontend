@@ -34,7 +34,7 @@ const cartItems = [
     restaurant: "Bella Italia",
     price: 1400,
     quantity: 2,
-    image: "/images/dishes/margherita-pizza.jpg", // Updated image path
+    image: "/images/dishes/margherita-pizza.jpg",
     customizations: [
       { name: "Size", value: "Large", extraCost: 200 },
       { name: "Extra Cheese", value: "Yes", extraCost: 150 },
@@ -47,9 +47,35 @@ const cartItems = [
     restaurant: "Bella Italia",
     price: 1600,
     quantity: 1,
-    image: "/images/dishes/spaghetti-carbonara.jpg", // Updated image path
+    image: "/images/dishes/carbonara.jpg",
     customizations: [{ name: "Spice Level", value: "Medium", extraCost: 0 }],
     specialInstructions: "",
+  },
+  {
+    id: 3,
+    name: "Chicken Biryani",
+    restaurant: "Spice Garden",
+    price: 1800,
+    quantity: 1,
+    image: "/images/dishes/chicken-biryani.jpg",
+    customizations: [
+      { name: "Spice Level", value: "Hot", extraCost: 0 },
+      { name: "Extra Raita", value: "Yes", extraCost: 100 },
+    ],
+    specialInstructions: "Less oil please",
+  },
+  {
+    id: 4,
+    name: "Classic Burger",
+    restaurant: "Burger Palace",
+    price: 1200,
+    quantity: 1,
+    image: "/images/dishes/classic-burger.jpg",
+    customizations: [
+      { name: "Size", value: "Regular", extraCost: 0 },
+      { name: "Extra Fries", value: "Yes", extraCost: 200 },
+    ],
+    specialInstructions: "No pickles",
   },
 ]
 
@@ -62,7 +88,6 @@ const paymentMethods = [
   { id: "guiddini", name: "Guiddini", icon: CreditCard, description: "Pay with Guiddini wallet" },
   { id: "cib", name: "CIB Bank", icon: CreditCard, description: "Credit/Debit card" },
   { id: "edahabia", name: "Edahabia", icon: CreditCard, description: "Edahabia card" },
-  { id: "wallet", name: "App Wallet", icon: Wallet, description: "Use your app balance" },
 ]
 
 export default function CartPage() {
@@ -236,8 +261,8 @@ export default function CartPage() {
 
               {/* Promo Code */}
               <Card className="border-orange-100 dark:border-orange-900/30">
-                <CardContent className="p-4">
-                  <div className="flex gap-2">
+                <CardContent className="p-5">
+                  <div className="flex gap-3">
                     <div className="flex-1">
                       <Input
                         placeholder="Enter promo code"

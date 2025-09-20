@@ -27,7 +27,7 @@ export function PWABottomNav() {
   }
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-t border-orange-200/50 dark:border-gray-700/50 transition-all duration-300">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/98 dark:bg-gray-900/98 backdrop-blur-xl border-t border-orange-200/50 dark:border-gray-700/50 transition-all duration-300 shadow-lg">
       <div className="max-w-md mx-auto px-1 py-1.5">
         <div className="flex items-center justify-around">
           {navItems.map(({ href, icon: Icon, label, hasAI, badge }) => {

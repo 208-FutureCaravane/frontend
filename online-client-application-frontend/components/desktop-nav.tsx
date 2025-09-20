@@ -18,9 +18,9 @@ export function DesktopNav() {
   const pathname = usePathname()
 
   return (
-    <nav className="fixed left-0 top-0 z-40 h-screen w-64 bg-card border-r border-border hidden xl:block">
+    <nav className="fixed left-0 top-0 z-50 h-screen w-64 bg-card/95 backdrop-blur-sm border-r border-border hidden xl:block">
       <div className="flex flex-col h-full p-4">
-        <div className="flex items-center gap-2 mb-8 mt-16">
+        <div className="flex items-center gap-2 mb-8 mt-4">
           <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
             <span className="text-white font-bold text-sm">SR</span>
           </div>

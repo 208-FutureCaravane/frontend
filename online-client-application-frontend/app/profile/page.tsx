@@ -46,60 +46,85 @@ import Image from "next/image"
 import Link from "next/link"
 
 const userProfile = {
-  name: "Sarah Johnson",
-  email: "sarah.johnson@email.com",
+  name: "Ahmed Benali",
+  email: "ahmed.benali@email.com",
   phone: "+213 555 0123",
-  avatar: "/placeholder.svg?key=avatar",
-  joinDate: "March 2024",
-  totalOrders: 47,
-  loyaltyPoints: 1250,
-  tier: "Gold",
-  nextTier: "Platinum",
-  pointsToNextTier: 750,
-  totalSpent: 45600,
-  bio: "Food enthusiast who loves trying new cuisines and discovering hidden gems in the city.",
+  avatar: "/placeholder-user.jpg",
+  joinDate: "January 2024",
+  totalOrders: 87,
+  loyaltyPoints: 2450,
+  tier: "Platinum",
+  nextTier: "Diamond",
+  pointsToNextTier: 550,
+  totalSpent: 89400,
+  bio: "Food enthusiast who loves trying new cuisines and discovering hidden gems in Algiers. Pizza lover and coffee addict!",
   favoriteRestaurants: [
     { id: 1, name: "Bella Italia", cuisine: "Italian", image: "/images/restaurants/bella-italia.jpg" },
     { id: 2, name: "Spice Garden", cuisine: "Indian", image: "/images/restaurants/spice-garden.jpg" },
+    { id: 3, name: "Burger Palace", cuisine: "American", image: "/images/restaurants/burger-palace.jpg" },
   ],
   recentOrders: [
     {
       id: 1,
       restaurant: "Bella Italia",
-      items: ["Margherita Pizza", "Caesar Salad"],
-      total: 2400,
+      items: ["Margherita Pizza", "Caesar Salad", "Tiramisu"],
+      total: 3200,
       date: "2024-01-15",
       status: "delivered",
-      pointsEarned: 24,
+      pointsEarned: 32,
     },
     {
       id: 2,
+      restaurant: "Sushi Zen",
+      items: ["Dragon Roll", "Miso Soup"],
+      total: 2800,
+      date: "2024-01-14",
+      status: "delivered",
+      pointsEarned: 28,
+    },
+    {
+      id: 3,
       restaurant: "Burger Palace",
-      items: ["Classic Burger", "Fries"],
-      total: 1800,
+      items: ["Classic Burger", "Fries", "Milkshake"],
+      total: 2100,
       date: "2024-01-12",
       status: "delivered",
-      pointsEarned: 18,
+      pointsEarned: 21,
+    },
+    {
+      id: 4,
+      restaurant: "Taco Fiesta",
+      items: ["Beef Tacos", "Guacamole"],
+      total: 1600,
+      date: "2024-01-10",
+      status: "delivered",
+      pointsEarned: 16,
     },
   ],
   preferences: {
     favoriteCuisine: "Italian",
     spiceLevel: "Medium",
     budget: "$$",
-    dietaryRestrictions: ["Vegetarian"],
+    dietaryRestrictions: [],
   },
-  allergies: ["Nuts", "Shellfish"],
+  allergies: [],
   addresses: [
     {
       id: 1,
       label: "Home",
-      address: "123 Main Street, Algiers",
+      address: "123 Rue Didouche Mourad, Algiers",
       isDefault: true,
     },
     {
       id: 2,
       label: "Work",
-      address: "456 Business Ave, Algiers",
+      address: "456 Avenue des Martyrs, Algiers",
+      isDefault: false,
+    },
+    {
+      id: 3,
+      label: "University",
+      address: "789 Boulevard Krim Belkacem, Algiers",
       isDefault: false,
     },
   ],
@@ -110,20 +135,20 @@ const userProfile = {
       description: "Completed your first order",
       icon: Trophy,
       earned: true,
-      date: "2024-03-15",
+      date: "2024-01-15",
     },
-    { id: 2, name: "Loyal Customer", description: "Made 10 orders", icon: Heart, earned: true, date: "2024-04-20" },
+    { id: 2, name: "Loyal Customer", description: "Made 10 orders", icon: Heart, earned: true, date: "2024-01-20" },
     {
       id: 3,
       name: "Explorer",
       description: "Tried 5 different cuisines",
       icon: Target,
       earned: true,
-      date: "2024-05-10",
+      date: "2024-01-25",
     },
-    { id: 4, name: "Big Spender", description: "Spent over 50,000 DA", icon: Crown, earned: false, progress: 91 },
-    { id: 5, name: "Speed Demon", description: "Order 5 times in one week", icon: Zap, earned: false, progress: 60 },
-    { id: 6, name: "Review Master", description: "Write 20 reviews", icon: Star, earned: false, progress: 35 },
+    { id: 4, name: "Big Spender", description: "Spent over 50,000 DA", icon: Crown, earned: true, progress: 100 },
+    { id: 5, name: "Speed Demon", description: "Order 5 times in one week", icon: Zap, earned: false, progress: 80 },
+    { id: 6, name: "Review Master", description: "Write 20 reviews", icon: Star, earned: false, progress: 65 },
   ],
   availableRewards: [
     { id: 1, name: "Free Delivery", cost: 200, description: "Free delivery on your next order", icon: Gift },
@@ -186,8 +211,8 @@ export default function ProfilePage() {
         <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-6 max-w-4xl">
           {/* Enhanced Profile Header with Loyalty Status */}
           <Card className="mb-4 sm:mb-6 bg-gradient-to-r from-amber-500 to-red-500 text-white border-0 shadow-xl">
-            <CardContent className="p-3 sm:p-6">
-              <div className="flex items-start gap-2 sm:gap-4">
+            <CardContent className="p-4 sm:p-6">
+              <div className="flex items-start gap-3 sm:gap-4">
                 <div className="relative">
                   <Avatar className="h-12 w-12 sm:h-20 sm:w-20 border-4 border-white/30">
                     <AvatarImage src={profile.avatar || "/placeholder.svg"} alt={profile.name} />
@@ -239,21 +264,21 @@ export default function ProfilePage() {
           {/* Quick Stats */}
           <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-4 sm:mb-6">
             <Card className="text-center border-0 shadow-lg">
-              <CardContent className="p-2 sm:p-4">
-                <div className="w-6 h-6 sm:w-10 sm:h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
-                  <Clock className="h-3 w-3 sm:h-5 sm:w-5 text-blue-600" />
+              <CardContent className="p-3 sm:p-4">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
                 </div>
-                <p className="text-sm sm:text-2xl font-bold text-blue-600">{profile.totalOrders}</p>
+                <p className="text-lg sm:text-2xl font-bold text-blue-600">{profile.totalOrders}</p>
                 <p className="text-xs text-muted-foreground">Orders</p>
               </CardContent>
             </Card>
 
             <Card className="text-center border-0 shadow-lg">
-              <CardContent className="p-2 sm:p-4">
-                <div className="w-6 h-6 sm:w-10 sm:h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
-                  <TrendingUp className="h-3 w-3 sm:h-5 sm:w-5 text-green-600" />
+              <CardContent className="p-3 sm:p-4">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-green-600" />
                 </div>
-                <p className="text-sm sm:text-2xl font-bold text-green-600">
+                <p className="text-lg sm:text-2xl font-bold text-green-600">
                   {(profile.totalSpent / 1000).toFixed(0)}K
                 </p>
                 <p className="text-xs text-muted-foreground">DA Spent</p>
@@ -261,11 +286,11 @@ export default function ProfilePage() {
             </Card>
 
             <Card className="text-center border-0 shadow-lg">
-              <CardContent className="p-2 sm:p-4">
-                <div className="w-6 h-6 sm:w-10 sm:h-10 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
-                  <Award className="h-3 w-3 sm:h-5 sm:w-5 text-purple-600" />
+              <CardContent className="p-3 sm:p-4">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <Award className="h-4 w-4 sm:h-5 sm:w-5 text-purple-600" />
                 </div>
-                <p className="text-sm sm:text-2xl font-bold text-purple-600">
+                <p className="text-lg sm:text-2xl font-bold text-purple-600">
                   {profile.achievements.filter((a) => a.earned).length}
                 </p>
                 <p className="text-xs text-muted-foreground">Badges</p>
