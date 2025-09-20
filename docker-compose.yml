@@ -1,0 +1,111 @@
+version: '3.8'
+
+services:
+  # Chef Application - Kitchen staff interface
+  chef-app:
+    build:
+      context: ./chef-application-frontend
+      dockerfile: Dockerfile
+    container_name: restaurant-chef-app
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_APP_NAME=chef-application
+      - NEXT_PUBLIC_API_URL=${API_URL:-http://localhost:8000}
+      - PORT=3000
+    volumes:
+      - ./chef-application-frontend:/app
+      - /app/node_modules
+    restart: unless-stopped
+    networks:
+      - restaurant-network
+
+  # Manager Application - Management dashboard
+  manager-app:
+    build:
+      context: ./manager-application-frontend
+      dockerfile: Dockerfile
+    container_name: restaurant-manager-app
+    ports:
+      - "3002:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_APP_NAME=manager-application
+      - NEXT_PUBLIC_API_URL=${API_URL:-http://localhost:8000}
+      - PORT=3000
+    volumes:
+      - ./manager-application-frontend:/app
+      - /app/node_modules
+    restart: unless-stopped
+    networks:
+      - restaurant-network
+
+  # Online Client Application - Customer ordering platform
+  online-client-app:
+    build:
+      context: ./online-client-application-frontend
+      dockerfile: Dockerfile
+    container_name: restaurant-online-client-app
+    ports:
+      - "3003:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_APP_NAME=online-client-application
+      - NEXT_PUBLIC_API_URL=${API_URL:-http://localhost:8000}
+      - PORT=3000
+    volumes:
+      - ./online-client-application-frontend:/app
+      - /app/node_modules
+    restart: unless-stopped
+    networks:
+      - restaurant-network
+
+  # Onsite Client Application - In-restaurant kiosks
+  onsite-client-app:
+    build:
+      context: ./onsite-client-application-frontend
+      dockerfile: Dockerfile
+    container_name: restaurant-onsite-client-app
+    ports:
+      - "3004:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_APP_NAME=onsite-client-application
+      - NEXT_PUBLIC_API_URL=${API_URL:-http://localhost:8000}
+      - PORT=3000
+    volumes:
+      - ./onsite-client-application-frontend:/app
+      - /app/node_modules
+    restart: unless-stopped
+    networks:
+      - restaurant-network
+
+  # Waiter Application - Service staff interface
+  waiter-app:
+    build:
+      context: ./waiter-application-frontend
+      dockerfile: Dockerfile
+    container_name: restaurant-waiter-app
+    ports:
+      - "3005:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_APP_NAME=waiter-application
+      - NEXT_PUBLIC_API_URL=${API_URL:-http://localhost:8000}
+      - PORT=3000
+    volumes:
+      - ./waiter-application-frontend:/app
+      - /app/node_modules
+    restart: unless-stopped
+    networks:
+      - restaurant-network
+
+networks:
+  restaurant-network:
+    driver: bridge
+    name: restaurant-network
+
+# Optional: Add volumes for persistent data if needed
+# volumes:
+#   restaurant-data:
