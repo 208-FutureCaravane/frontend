@@ -12,7 +12,7 @@ export default function TablePage({ params }: TablePageProps) {
   return (
     <div className="min-h-screen bg-background">
       <TopBar />
-      <main className="pb-16 pt-12">
+      <main className="py-28">
         <TableDetails tableId={params.id} />
       </main>
       <BottomNavigation />

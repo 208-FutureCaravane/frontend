@@ -3,12 +3,14 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { AlertTriangle, Package, ShoppingCart } from "lucide-react"
+import { getIngredientIcon } from "@/lib/ingredient-icons"
 
 interface StockAlert {
   ingredient: string
   currentStock: number
   threshold: number
   unit: string
+  category?: string
 }
 
 interface StockAlertProps {
@@ -46,14 +48,16 @@ export function StockAlert({ alert }: StockAlertProps) {
   }
 
   const urgencyLevel = getUrgencyLevel()
+  const ingredientIcon = getIngredientIcon(alert.ingredient, alert.category || 'other')
+  const IngredientIcon = ingredientIcon.icon
 
   return (
     <Card className={`${getUrgencyStyles(urgencyLevel)} border`}>
       <CardContent className="p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className={`p-2 rounded-lg bg-muted ${getUrgencyColor(urgencyLevel)}`}>
-              <Package className="w-5 h-5" />
+            <div className={`p-2 rounded-lg ${ingredientIcon.bgColor} ${getUrgencyColor(urgencyLevel)}`}>
+              <IngredientIcon className={`w-5 h-5 ${ingredientIcon.color}`} />
             </div>
             <div>
               <div className="font-medium text-foreground">{alert.ingredient}</div>

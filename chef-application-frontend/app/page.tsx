@@ -68,8 +68,8 @@ const mockOrders = [
 ]
 
 const mockStockAlerts = [
-  { ingredient: "Tomatoes", currentStock: 8, threshold: 10, unit: "%" },
-  { ingredient: "Salmon Fillets", currentStock: 3, threshold: 5, unit: "pieces" },
+  { ingredient: "Tomatoes", currentStock: 8, threshold: 10, unit: "%", category: "vegetable" },
+  { ingredient: "Salmon Fillets", currentStock: 3, threshold: 5, unit: "pieces", category: "protein" },
 ]
 
 export default function ChefDashboard() {

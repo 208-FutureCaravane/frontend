@@ -134,7 +134,7 @@ export function QRScanner() {
       </div>
 
       <Card className="overflow-hidden">
-        <CardContent className="p-0">
+        <CardContent className="p-0 flex items-center justify-center">
           {isScanning ? (
             <div className="relative aspect-square bg-black rounded-lg overflow-hidden">
               {cameraError ? (
@@ -213,7 +213,7 @@ export function QRScanner() {
               )}
             </div>
           ) : (
-            <div className="aspect-square bg-muted rounded-lg flex flex-col items-center justify-center p-6 text-center">
+            <div className="aspect-square bg-muted rounded-lg flex flex-col items-center justify-center p-6 text-center max-h-[50rem]">
               <Camera className="h-12 w-12 text-muted-foreground mb-3" />
               <h3 className="font-semibold text-base mb-2">Ready to Scan</h3>
               <p className="text-xs text-muted-foreground mb-4">

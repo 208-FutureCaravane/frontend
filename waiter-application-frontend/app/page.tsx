@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       <TopBar />
-      <main className="pb-28 pt-12">
+      <main className="py-28">
         <TableOverview />
       </main>
       <TableStatusBar tables={mockTables} />

@@ -1,37 +1,36 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import url("https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated to restaurant theme with amber-to-red gradient palette - unified styling */
+  /* Updated to restaurant theme with amber-to-red gradient palette */
   --background: oklch(1 0 0); /* Pure white */
-  --foreground: oklch(0.3 0 0); /* Dark gray for text - from manager */
-  --card: oklch(0.98 0.02 85); /* Light beige for cards - from manager */
+  --foreground: oklch(0.3 0 0); /* Dark gray for text */
+  --card: oklch(0.98 0.02 85); /* Light beige for cards */
   --card-foreground: oklch(0.3 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.3 0 0);
-  --primary: oklch(0.65 0.15 45); /* Amber primary - from manager */
+  --primary: oklch(0.65 0.15 45); /* Amber primary */
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.7 0.18 35); /* Orange accent - from manager */
+  --secondary: oklch(0.7 0.18 35); /* Orange accent */
   --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.96 0.01 85); /* Very light beige - from manager */
+  --muted: oklch(0.96 0.01 85); /* Very light beige */
   --muted-foreground: oklch(0.5 0 0);
-  --accent: oklch(0.72 0.2 25); /* Red-orange accent - from manager */
+  --accent: oklch(0.72 0.2 25); /* Red-orange accent */
   --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.55 0.25 15); /* Red for alerts - from manager */
+  --destructive: oklch(0.55 0.25 15); /* Red for alerts */
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.9 0.01 85);
   --input: oklch(0.98 0.02 85);
   --ring: oklch(0.65 0.15 45);
-  /* Updated chart colors to match food theme - from manager */
+  /* Updated chart colors to match food theme */
   --chart-1: oklch(0.75 0.2 45); /* Golden yellow */
   --chart-2: oklch(0.7 0.18 35); /* Orange */
   --chart-3: oklch(0.65 0.2 25); /* Red-orange */
   --chart-4: oklch(0.6 0.22 15); /* Red */
   --chart-5: oklch(0.55 0.15 120); /* Fresh green */
-  --radius: 0.75rem; /* Larger radius for modern look - from manager */
+  --radius: 0.75rem; /* Larger radius for modern look */
   --sidebar: oklch(0.98 0.02 85);
   --sidebar-foreground: oklch(0.3 0 0);
   --sidebar-primary: oklch(0.65 0.15 45);
@@ -40,20 +39,18 @@
   --sidebar-accent-foreground: oklch(0.3 0 0);
   --sidebar-border: oklch(0.9 0.01 85);
   --sidebar-ring: oklch(0.65 0.15 45);
-  --color-urgent: oklch(0.55 0.25 15); /* Unified red for urgent */
-  --color-vegetarian: oklch(0.55 0.15 120); /* Unified fresh green */
 }
 
 
 .dark {
-  /* Updated dark theme to maintain restaurant aesthetic - unified with manager */
+  /* Updated dark theme to maintain restaurant aesthetic */
   --background: oklch(0.15 0 0);
   --foreground: oklch(0.95 0 0);
   --card: oklch(0.18 0.01 45);
   --card-foreground: oklch(0.95 0 0);
   --popover: oklch(0.15 0 0);
   --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.75 0.2 45); /* Enhanced Orange - Brighter orange in dark mode */
+  --primary: oklch(0.75 0.2 45);
   --primary-foreground: oklch(0.15 0 0);
   --secondary: oklch(0.25 0.02 45);
   --secondary-foreground: oklch(0.95 0 0);
@@ -65,7 +62,7 @@
   --destructive-foreground: oklch(0.95 0 0);
   --border: oklch(0.25 0.01 45);
   --input: oklch(0.25 0.01 45);
-  --ring: oklch(0.75 0.2 45); /* Enhanced Orange ring */
+  --ring: oklch(0.75 0.2 45);
   --chart-1: oklch(0.8 0.25 45);
   --chart-2: oklch(0.75 0.22 35);
   --chart-3: oklch(0.7 0.25 25);
@@ -84,8 +81,6 @@
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-poppins: var(--font-poppins);
-  --font-heading: "Protest Strike", cursive;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -122,9 +117,6 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-
-  /* Added xs breakpoint for better mobile responsiveness */
-  --breakpoint-xs: 475px;
 }
 
 @layer base {
@@ -133,30 +125,6 @@
   }
   body {
     @apply bg-background text-foreground;
-  }
-  .font-heading {
-    font-family: var(--font-heading);
-  }
-  /* Further reduced typography sizes for better mobile experience */
-  h1 {
-    @apply text-base sm:text-lg font-heading;
-  }
-  h2 {
-    @apply text-sm sm:text-base font-heading;
-  }
-  h3 {
-    @apply text-xs sm:text-sm font-heading;
-  }
-  .text-body {
-    @apply text-xs sm:text-sm;
-  }
-  .text-small {
-    @apply text-xs;
-  }
-  
-  /* Font family utilities */
-  .font-poppins {
-    font-family: var(--font-poppins);
   }
 }
 

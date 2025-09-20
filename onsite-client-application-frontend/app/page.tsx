@@ -120,24 +120,12 @@ export default function RestaurantLanding() {
       </header>
 
       {/* Main Content */}
-      <main className="px-2 sm:px-3 md:px-4 lg:px-6 pb-4 sm:pb-6 md:pb-8">
+      <main className="px-2 sm:px-3 md:px-4 lg:px-6  flex flex-col items-center">
         {/* QR Scan Confirmation */}
-        <Card className="mb-3 sm:mb-4 md:mb-6 border-primary/20 bg-primary/5">
-          <CardContent className="p-2 sm:p-3 md:p-4">
-            <div className="flex items-center gap-2 sm:gap-3">
-              <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 restaurant-gradient rounded-full flex items-center justify-center">
-                <QrCode className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" />
-              </div>
-              <div>
-                <p className="font-medium text-primary text-xs sm:text-sm md:text-base">{currentLang.scanMessage}</p>
-                <p className="text-xs sm:text-sm text-muted-foreground">Connected successfully</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+      
 
         {/* Welcome Section */}
-        <div className="text-center mb-4 sm:mb-6 md:mb-8">
+        <div className="text-center mb-4 sm:mb-6">
           <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             {currentLang.welcome}
           </h1>
@@ -152,30 +140,53 @@ export default function RestaurantLanding() {
             variant="outline"
             className="text-xs sm:text-sm md:text-lg px-2 sm:px-3 md:px-4 py-1 sm:py-2 border-primary text-primary"
           >
-            {currentLang.tableNumber} {tableNumber}
+            QR Code Detected - Table {currentLang.tableNumber} {tableNumber}
           </Badge>
         </div>
-
-        {/* Hero Image */}
-        <div className="mb-4 sm:mb-6 md:mb-8 relative">
-          <img
-            src="/elegant-restaurant-interior-with-warm-lighting-and.jpg"
-            alt="Restaurant Interior"
-            className="w-full h-32 sm:h-48 md:h-64 lg:h-80 object-cover rounded-lg sm:rounded-xl shadow-lg"
-          />
-          <div className="absolute inset-0 restaurant-gradient opacity-20 rounded-lg sm:rounded-xl"></div>
+         {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 max-w-md mx-auto mb-6">
+          <Link href="/menu" className="flex-1">
+            <Button
+              size="lg"
+              className="w-full restaurant-gradient text-white font-semibold py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg hover:opacity-90 transition-opacity"
+            >
+              {currentLang.viewMenu}
+            </Button>
+          </Link>
+          <Link href="/menu" className="flex-1">
+            <Button
+              size="lg"
+              variant="outline"
+              className="w-full border-primary text-primary hover:bg-primary hover:text-white py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg transition-colors bg-transparent"
+            >
+              {currentLang.orderNow}
+            </Button>
+          </Link>
         </div>
+      </main>
 
-        <section className="mb-6 sm:mb-8">
+      {/* Hero Image - Full Width */}
+      <div className="mb-4 sm:m-6 md:m-8 relative">
+        <img
+          src="/elegant-restaurant-interior-with-warm-lighting-and.jpg"
+          alt="Restaurant Interior"
+          className="w-full h-32 sm:h-48 md:h-64 lg:h-80 object-cover object-center rounded-lg mt-0"
+        />
+        <div className="absolute inset-0 restaurant-gradient opacity-20"></div>
+      </div>
+
+      <main className="px-2 sm:px-3 md:px-4 lg:px-6 pb-4 sm:pb-6 md:pb-8 flex flex-col items-center">
+        <section className="mb-6 sm:mb-8 max-w-5xl">
           <Card className="overflow-hidden">
             <CardContent className="p-0">
               <div className="grid md:grid-cols-2 gap-0">
-                <div className="p-4 sm:p-6 md:p-8">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">{currentLang.aboutTitle}</h2>
-                  <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed">
-                    {currentLang.aboutDescription}
-                  </p>
-
+                <div className="flex flex-col justify-between p-4 sm:p-6 md:p-8">
+                  <div>
+                     <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl  font-bold mb-3 sm:mb-4">{currentLang.aboutTitle}</h2>
+                     <p className="  text-xl text-muted-foreground mb-4 sm:mb-6 leading-relaxed">
+                     {currentLang.aboutDescription}
+                     </p>
+                  </div>
                   {/* Restaurant Stats */}
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                     <div className="text-center p-3 sm:p-4 bg-muted/50 rounded-lg">
@@ -193,9 +204,9 @@ export default function RestaurantLanding() {
                   </div>
                 </div>
 
-                <div className="relative h-48 sm:h-64 md:h-auto">
-                  <img src="/chef-cooking-restaurant.jpg" alt="Chef cooking" className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 restaurant-gradient opacity-10"></div>
+                <div className="relative h-48 sm:h-64 md:h-auto m-4 sm:m-6 md:m-8 bg-gradient-to-br from-background via-card to-muted rounded-lg">
+                  <img src="/chef-cooking-restaurant.jpg" alt="Chef cooking" className="rounded-lg w-full h-full object-cover object-center mix-blend-multiply opacity-80" />
+                  <div className="absolute inset-0 restaurant-gradient opacity-10 rounded-lg"></div>
                 </div>
               </div>
             </CardContent>
@@ -203,7 +214,7 @@ export default function RestaurantLanding() {
         </section>
 
         {/* Feature Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 max-sm:w-[90%] sm:gap-3 md:gap-4 mb-20 sm:mb-20 md:mb-20 ">
           <Card className="text-center p-3 sm:p-4 md:p-6 hover:shadow-lg transition-all duration-300 hover:scale-105">
             <CardContent className="p-0">
               <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 restaurant-gradient rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
@@ -241,26 +252,7 @@ export default function RestaurantLanding() {
           </Card>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 max-w-md mx-auto mb-36 sm:mb-16">
-          <Link href="/menu" className="flex-1">
-            <Button
-              size="lg"
-              className="w-full restaurant-gradient text-white font-semibold py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg hover:opacity-90 transition-opacity"
-            >
-              {currentLang.viewMenu}
-            </Button>
-          </Link>
-          <Link href="/menu" className="flex-1">
-            <Button
-              size="lg"
-              variant="outline"
-              className="w-full border-primary text-primary hover:bg-primary hover:text-white py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg transition-colors bg-transparent"
-            >
-              {currentLang.orderNow}
-            </Button>
-          </Link>
-        </div>
+        
       </main>
     </div>
   )

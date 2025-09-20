@@ -98,17 +98,6 @@ const menuItems: MenuItem[] = [
     allergens: ["Sesame"],
   },
   {
-    id: "7",
-    name: "Craft Beer Selection",
-    description: "Local and international craft beers",
-    price: 8.0,
-    category: "drinks",
-    image: "/craft-beer-selection.png",
-    dietary: [],
-    ingredients: ["Various craft beers"],
-    allergens: ["Gluten"],
-  },
-  {
     id: "8",
     name: "Fresh Mint Tea",
     description: "Traditional Moroccan mint tea",
